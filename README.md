@@ -3,7 +3,9 @@
 My showcase page where I show my skills and projects
 
 ## Tech stack
+
 ### Frontend
+
 Repository contains only frontend stack.
 
 | Vendor       | Version |
@@ -13,22 +15,29 @@ Repository contains only frontend stack.
 | React Router | ^6.19   |
 
 ## Development
+
 To start local server, simply run:
+
 ```shell
 npm run dev
 ```
 
 ### Building for production
+
 To build production artifacts, run:
+
 ```shell
 npn run build
 ```
 
 ### Code lint
+
 Code checker and linter is built-in. Simply run:
+
 ```shell
 npm run lint
 ```
-## Changelog
-All notable changes to this project will be documented in [CHANGELOG.md](./docs/CHANGELOG.md) file.
 
+## Changelog
+
+All notable changes to this project will be documented in [CHANGELOG.md](./docs/CHANGELOG.md) file.
