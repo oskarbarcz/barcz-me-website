@@ -1,3 +1,6 @@
+import GlowingBox from "../components/GlowingBox.jsx";
+import GlowingBoxes from "../components/GlowingBoxes.jsx";
+
 export default function TechnologyBlock() {
 
   const backendTechnologies = [
@@ -51,15 +54,16 @@ export default function TechnologyBlock() {
             praesentium quam similique sint tempore? Adipisci alias blanditiis earum eveniet nam optio perferendis quae
             tenetur! Tempore?
           </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequatur cupiditate, earum et perferendis
+            praesentium quam similique sint tempore? Adipisci alias blanditiis earum eveniet nam optio perferendis quae
+            tenetur! Tempore?
+          </p>
         </div>
         <div className="col-6">
           <div className="d-flex flex-wrap" id="glossy-cards">
             {stack.map((technologies, i) =>
-              <div key={i} className="my-2 d-flex flex-wrap">
-                {technologies.map((technology, j) => (
-                  <div key={j} className="fs-4 fw-bold text-secondary rounded m-1 p-2 border border-2">{technology}</div>
-                ))}
-              </div>
+              <GlowingBoxes texts={technologies} key={i} />
             )}
           </div>
         </div>
