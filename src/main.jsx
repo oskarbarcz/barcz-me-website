@@ -2,17 +2,18 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 
-import Root from "./routes/Root.jsx";
+import RootRoute from "./routes/RootRoute.jsx";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import ConferencesRoute from "./routes/ConferencesRoute.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
+    element: <RootRoute/>,
   },
   {
-    path: "/#services",
-    element: <Root/>,
+    path: "/events",
+    element: <ConferencesRoute/>,
   },
 ]);
 
