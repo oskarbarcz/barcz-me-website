@@ -4,17 +4,12 @@ import './index.css'
 
 import RootRoute from "./routes/RootRoute.jsx";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import ConferencesRoute from "./routes/ConferencesRoute.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootRoute/>,
-  },
-  {
-    path: "/events",
-    element: <ConferencesRoute/>,
-  },
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

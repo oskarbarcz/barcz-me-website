@@ -54,10 +54,10 @@ export default function TechnologyBlock() {
   const sections = [backendStack, frontendStack, devopsStack];
 
   return (
-    <div className="container py-5 my-5">
+    <div className="container py-5 mt-5 my-md-5">
       <div className="row gx-5 align-items-center">
         <div className="col-12 col-md-6">
-          <img src={programmingSvg} className="w-100 d-block mx-auto mb-5 p-5" alt=""/>
+          <img src={programmingSvg} className="w-100 d-block mx-auto mb-2 mb-md-5 p-5" alt=""/>
           <h2 className="fw-bold display-3 my-4">Technologia</h2>
           <p className="lead">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequatur cupiditate, earum et perferendis
@@ -69,7 +69,7 @@ export default function TechnologyBlock() {
           <div className="d-flex flex-wrap" id="glossy-cards">
             {sections.map((section, i) =>
               <>
-                <h3 className="text-light bg-dark p-1 h6 mb-0 mt-3">{section.title}</h3>
+                <h3 className="text-light bg-dark p-1 h6 mb-0 mt-4">{section.title}</h3>
                 <GlowingBoxes texts={section.technologies} key={i} />
               </>
           )}
