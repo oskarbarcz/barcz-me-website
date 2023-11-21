@@ -47,3 +47,13 @@ body {
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba( 70, 70, 70, 0.18 );
 }
+
+.contact-link:hover{
+  border-color: #40bf7e !important;
+  transition: border-color 250ms ease-in-out;
+}
+
+.contact-link:hover > svg {
+  color: #40bf7e;
+  transition: color 250ms ease-in-out;
+}
