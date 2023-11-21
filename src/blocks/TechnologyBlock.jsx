@@ -47,7 +47,7 @@ export default function TechnologyBlock() {
   return (
     <div className="container py-5 my-5">
       <div className="row align-items-center">
-        <div className="col-6">
+        <div className="col-12 col-md-6">
           <h2 className="fw-bold display-3">Technologia</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequatur cupiditate, earum et perferendis
@@ -60,7 +60,7 @@ export default function TechnologyBlock() {
             tenetur! Tempore?
           </p>
         </div>
-        <div className="col-6">
+        <div className="col-12 col-md-6">
           <div className="d-flex flex-wrap" id="glossy-cards">
             {stack.map((technologies, i) =>
               <GlowingBoxes texts={technologies} key={i} />

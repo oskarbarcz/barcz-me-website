@@ -19,6 +19,10 @@ body {
   font-family: 'Roboto Slab', serif;
 }
 
+.ms-n5 {
+  margin-left: -3rem !important;
+}
+
 .exo {
   font-family: 'Exo 2', sans-serif;
 }
@@ -31,8 +35,8 @@ body {
   text-shadow: 1px 1px 100px #40bf7e;
 }
 
-.photo {
-  object-fit: cover;
+.profile-picture {
+  width: 100%;
   border-radius: 50%;
 }
 

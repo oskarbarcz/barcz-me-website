@@ -7,7 +7,7 @@ export default function NetworkingBlock() {
     <div className="container my-5 py-5">
       <h2 className="display-3 fw-bold mb-5">Zostańmy w kontakcie</h2>
       <div className="row align-items-center text-center py-5">
-        <div className="col-5 d-flex">
+        <div className="col-12 col-md-5 d-flex">
           <a className="card m-2 w-100 border-2 text-decoration-none contact-link" href="#">
             <Linkedin className="display-4 m-auto mt-4 mb-3"/>
             <span className="pb-2">LinkedIn</span>
@@ -21,11 +21,11 @@ export default function NetworkingBlock() {
             <span className="pb-2">GitHub</span>
           </a>
         </div>
-        <div className="col-2">
+        <div className="col-12 col-md-2">
           or let&apos;s meet <br />
           in real life
         </div>
-        <div className="col-5">
+        <div className="col-12 col-md-5">
           <div className="card mb-3 w-100">
             <div className="row g-0">
               <div className="col-md-4">

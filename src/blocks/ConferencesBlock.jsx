@@ -5,10 +5,10 @@ export default function ConferencesBlock() {
     <>
       <div className="container my-5 py-5">
         <div className="row align-items-center">
-          <div className="col-6">
-            <img className="photo m-5 pe-5" src={photo} alt="" width="500"/>
+          <div className="col-12 col-md-6">
+            <img className="photo m-5 pe-5" src={photo} alt="" width="100"/>
           </div>
-          <div className="col-6">
+          <div className="col-12 col-md-6">
             <h2 className="fw-bold display-3">Wystąpienia</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequatur cupiditate, earum et perferendis
