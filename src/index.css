@@ -23,6 +23,10 @@ body {
   margin-left: -3rem !important;
 }
 
+.me-n5 {
+  margin-right: -3rem !important;
+}
+
 .exo {
   font-family: 'Exo 2', sans-serif;
 }
@@ -33,11 +37,6 @@ body {
 
 .text-glow {
   text-shadow: 1px 1px 100px #40bf7e;
-}
-
-.profile-picture {
-  width: 100%;
-  border-radius: 50%;
 }
 
 .noisy {
