@@ -2,7 +2,7 @@ import HeroBlock from "../blocks/HeroBlock.jsx";
 import FooterBlock from "../blocks/FooterBlock.jsx";
 import TechnologyBlock from "../blocks/TechnologyBlock.jsx";
 import ConferencesBlock from "../blocks/ConferencesBlock.jsx";
-import NetworkingBlock from "../blocks/NetworkingBlock.jsx";
+import ContactMeBlock from "../blocks/ContactMeBlock.jsx";
 import NavigationBlock from "../blocks/NavigationBlock.jsx";
 
 export default function RootRoute() {
@@ -12,7 +12,7 @@ export default function RootRoute() {
       <HeroBlock/>
       <TechnologyBlock/>
       <ConferencesBlock/>
-      <NetworkingBlock/>
+      <ContactMeBlock/>
       <FooterBlock/>
     </>
   )
