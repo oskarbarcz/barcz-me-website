@@ -1,9 +1,11 @@
-import GlowingBox from "../components/GlowingBox.jsx";
 import GlowingBoxes from "../components/GlowingBoxes.jsx";
+import programmingSvg from "../assets/undraw_programming.svg"
 
 export default function TechnologyBlock() {
 
-  const backendTechnologies = [
+  const backendStack = {
+    title: 'Back-end stack',
+    technologies: [
     'PHP',
     'Symfony',
     'Doctrine',
@@ -17,44 +19,47 @@ export default function TechnologyBlock() {
     'Microservices',
     'OpenAPI',
     'OAuth'
-  ];
+  ]
+};
 
-  const frontendTechnologies = [
-    'HTML / CSS / JS',
-    'TypeScript',
-    'React',
-    'Redux',
-    'Remix',
-    'Next.js',
-    'Jest',
-    'Cypress',
-    'Progressive web apps',
-    'Analytics'
-  ];
+  const frontendStack = {
+    title: 'Front-end stack',
+    technologies: [
+      'HTML / CSS / JS',
+      'TypeScript',
+      'React',
+      'Redux',
+      'Remix',
+      'Next.js',
+      'Jest',
+      'Cypress',
+      'Progressive web apps',
+      'Web analytics'
+    ]
+  }
 
-  const devopsTechnologies = [
-    'Kubernetes',
-    'Helm',
-    'Terraform',
-    'AWS / GCP / Azure',
-    'Docker',
-    'Linux',
-    'Git',
-  ];
+  const devopsStack = {
+    title: 'DevOps stack',
+    technologies: [
+      'Kubernetes',
+      'Helm',
+      'Terraform',
+      'AWS / GCP / Azure',
+      'Docker',
+      'Linux',
+      'Git',
+    ]
+  };
 
-  const stack = [backendTechnologies, frontendTechnologies, devopsTechnologies];
+  const sections = [backendStack, frontendStack, devopsStack];
 
   return (
     <div className="container py-5 my-5">
-      <div className="row align-items-center">
+      <div className="row gx-5 align-items-center">
         <div className="col-12 col-md-6">
-          <h2 className="fw-bold display-3">Technologia</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequatur cupiditate, earum et perferendis
-            praesentium quam similique sint tempore? Adipisci alias blanditiis earum eveniet nam optio perferendis quae
-            tenetur! Tempore?
-          </p>
-          <p>
+          <img src={programmingSvg} className="w-100 d-block mx-auto mb-5 p-5" alt=""/>
+          <h2 className="fw-bold display-3 my-4">Technologia</h2>
+          <p className="lead">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequatur cupiditate, earum et perferendis
             praesentium quam similique sint tempore? Adipisci alias blanditiis earum eveniet nam optio perferendis quae
             tenetur! Tempore?
@@ -62,9 +67,12 @@ export default function TechnologyBlock() {
         </div>
         <div className="col-12 col-md-6">
           <div className="d-flex flex-wrap" id="glossy-cards">
-            {stack.map((technologies, i) =>
-              <GlowingBoxes texts={technologies} key={i} />
-            )}
+            {sections.map((section, i) =>
+              <>
+                <h3 className="text-light bg-dark p-1 h6 mb-0 mt-3">{section.title}</h3>
+                <GlowingBoxes texts={section.technologies} key={i} />
+              </>
+          )}
           </div>
         </div>
       </div>
