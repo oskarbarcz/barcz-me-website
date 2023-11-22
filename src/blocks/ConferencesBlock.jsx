@@ -1,4 +1,4 @@
-import photo from '../assets/photo_oskar_phpers.jpg'
+import photo from '../assets/photos/photo_oskar_phpers.jpg'
 
 export default function ConferencesBlock() {
   return (
