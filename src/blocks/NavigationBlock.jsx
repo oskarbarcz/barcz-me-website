@@ -25,16 +25,6 @@ export default function NavigationBlock() {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Projekty
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Leadership
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
                 Kontakt
               </a>
             </li>

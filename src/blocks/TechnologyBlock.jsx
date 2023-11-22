@@ -1,5 +1,5 @@
 import GlowingBoxes from "../components/GlowingBoxes.jsx";
-import programmingSvg from "../assets/undraw_programming.svg"
+import programmingSvg from "../assets/undraw_illustrations/undraw_programming.svg"
 
 export default function TechnologyBlock() {
 
@@ -57,7 +57,9 @@ export default function TechnologyBlock() {
     <div className="container py-5 mt-5 my-md-5">
       <div className="row gx-5 align-items-center">
         <div className="col-12 col-md-6">
-          <img src={programmingSvg} className="w-100 d-block mx-auto mb-2 mb-md-5 p-5" alt=""/>
+          <div className="mx-md-3 px-md-5">
+            <img src={programmingSvg} className="w-100 d-block mx-auto mb-2 p-5" alt=""/>
+          </div>
           <h2 className="fw-bold display-3 my-4">Technologia</h2>
           <p className="lead">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequatur cupiditate, earum et perferendis

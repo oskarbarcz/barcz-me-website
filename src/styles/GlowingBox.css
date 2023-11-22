@@ -39,7 +39,7 @@
 .glowing-box > .glowing-box__border {
   background: radial-gradient(
     150px circle at var(--mouse-x) var(--mouse-y),
-    rgba(64, 191, 126, 1),
+    var(--brand-color),
     transparent 40%
   );
 
