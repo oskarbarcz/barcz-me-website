@@ -1,9 +1,10 @@
 import photo from '../assets/photos/photo_oskar_phpers.jpg'
+import Anchor from "../consts/Anchor.jsx";
 
 export default function ConferencesBlock() {
   return (
     <>
-      <div className="container my-lg-5 py-lg-5">
+      <div className="container my-lg-5 py-lg-5" id={Anchor().root.conferences}>
         <div className="row gx-5 align-items-center">
           <div className="col-12 col-lg-6 order-2 order-lg-1 pe-lg-3">
             <section>

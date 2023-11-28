@@ -1,5 +1,6 @@
 import GlowingBoxes from "../components/GlowingBoxes.jsx";
 import programmingSvg from "../assets/undraw_illustrations/undraw_programming.svg"
+import Anchor from "../consts/Anchor.jsx";
 
 export default function TechnologyBlock() {
 
@@ -54,7 +55,7 @@ export default function TechnologyBlock() {
   const sections = [backendStack, frontendStack, devopsStack];
 
   return (
-    <div className="container py-5 mt-5 my-md-5">
+    <div className="container py-5 mt-5 my-md-5" id={Anchor().root.technology}>
       <div className="row gx-5 align-items-center">
         <div className="col-12 col-md-6">
           <div className="mx-md-3 px-md-5">
