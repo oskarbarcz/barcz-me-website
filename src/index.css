@@ -28,10 +28,6 @@ body {
   margin-right: -3rem !important;
 }
 
-.exo {
-  font-family: 'Exo 2', sans-serif;
-}
-
 .text-primary {
   color: var(--brand-color) !important;
 }
