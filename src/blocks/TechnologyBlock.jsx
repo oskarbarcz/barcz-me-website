@@ -63,9 +63,10 @@ export default function TechnologyBlock() {
           </div>
           <h2 className="fw-bold display-3 my-4">Technologia</h2>
           <p className="lead">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequatur cupiditate, earum et perferendis
-            praesentium quam similique sint tempore? Adipisci alias blanditiis earum eveniet nam optio perferendis quae
-            tenetur! Tempore?
+            Już od najmłodszych lat fascynowałem się tym jak działa internet. Eksperymentując z różnymi językami i
+            narzędziami wybrałem backend jako swoje główne środowisko pracy. Dziś, z pełnym profesjonalizmem, zajmuję
+            się tworzeniem <strong className="fw-bold">responsywnych, skalowalnych aplikacji serwerowych</strong> oraz
+            ich interfejsów skrojonych pod potrzebę klientów.
           </p>
         </div>
         <div className="col-12 col-md-6">
