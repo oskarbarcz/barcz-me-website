@@ -1,30 +1,38 @@
 import photo from '../assets/photos/photo_oskar_phpers.jpg'
 import Anchor from "../consts/Anchor.jsx";
+import ConferenceBox from "../components/ConferenceBox.jsx";
 
 export default function ConferencesBlock() {
+
+  const lastConferences = [
+    {
+      name: "Debata: Sposoby walki z cyberprzestępczością",
+      place: "Warsaw Enterprise Institute, zdalnie"
+    },
+    {
+      name: "Debata: Wolność w internecie",
+      place: "Warsaw Enterprise Institute, Warszawa"
+    },
+    {
+      name: "Podróż od CRUDów do działania opartego o akcje",
+      place: "NoExceptions by Boldare, zdalnie"
+    },
+    {
+      name: "Catching the mutants: Wprowadzenie do testów mutacyjnych",
+      place: "PHPers Summit 2022, Poznań"
+    }
+  ];
+
   return (
     <>
       <div className="container my-lg-5 py-lg-5" id={Anchor().root.conferences}>
         <div className="row gx-5 align-items-center">
           <div className="col-12 col-lg-6 order-2 order-lg-1 pe-lg-3">
-            <section className="pe-5 me-5">
+            <section className="pe-lg-5 me-lg-5">
               <h2 className="text-light bg-dark mt-4 mt-lg-0 p-1 h6 d-inline-block">Ostatnie wystąpienia i publikacje</h2>
-              <article className="my-2 border border-2 p-2 w-75 rounded rounded-3">
-                <h3 className="fs-5 fw-bold text-secondary">Debata: Sposoby walki z cyberprzestępczością</h3>
-                <span className="text-muted">Warsaw Enterprise Institute, zdalnie</span>
-              </article>
-              <article className="my-2 ms-auto border border-2 p-2 w-75 rounded rounded-3">
-                <h3 className="fs-5 fw-bold text-secondary">Debata: Wolność w internecie</h3>
-                <span className="text-muted">Warsaw Enterprise Institute, Warszawa</span>
-              </article>
-              <article className="my-2 border border-2 p-2 w-75 rounded rounded-3">
-                <h3 className="fs-5 fw-bold text-secondary">Podróż od CRUDów do działania opartego o akcje</h3>
-                <span className="text-muted">NoExceptions by Boldare, zdalnie</span>
-              </article>
-              <article className="my-2 ms-auto border border-2 p-2 w-75 rounded rounded-3">
-                <h3 className="fs-5 fw-bold text-secondary">Catching the mutants: Wprowadzenie do testów mutacyjnych</h3>
-                <span className="text-muted">PHPers Summit 2022, Poznań</span>
-              </article>
+              { lastConferences.map((conference, key) => (
+                <ConferenceBox key={key} {...conference} isRight={key % 2 === 1} />
+              )) }
             </section>
           </div>
           <div className="col-12 col-lg-6 order-1 order-lg-2">
