@@ -20,7 +20,15 @@ export default function ConferencesBlock() {
     {
       name: "Catching the mutants: Wprowadzenie do testów mutacyjnych",
       place: "PHPers Summit 2022, Poznań"
-    }
+    },
+    {
+      name: "Era post-quantum w kontekście bezpieczeństwa aplikacji webowych",
+      place: "PHPers Silesia Meetup 2022, Katowice"
+    },
+    {
+      name: "Projektowanie modularnych systemów: CQS, CQRS, Event Sourcing",
+      place: "PHPers Summit 2021, Poznań"
+    },
   ];
 
   return (
@@ -39,12 +47,14 @@ export default function ConferencesBlock() {
             <section>
               <h2 className="fw-bold display-3 my-4">Wystąpienia</h2>
               <article className="lead">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequatur cupiditate, earum et perferendis
-                praesentium quam similique sint tempore? Adipisci alias blanditiis earum eveniet nam optio perferendis quae
-                tenetur! Tempore?
+                Regularnie uczestniczę jako prelegent w konferencjach, gdzie moje wystąpienia skupiają się na tematyce
+                technologii serwerowych i tematach powiązanych. Podczas debat kładę nacisk na projektowanie aplikacji
+                bezpiecznych przy wsparciu nowych technologii, przedstawiam, analizuję i konsultuję rozwiązania z
+                zakresu cyberbezpieczeństwa.
               </article>
               <article className="position-relative">
-                <img src={photo} className="me-n5 mt-5 pt-5 pe-5 w-100 rounded-circle" alt=""/>
+                <img src={photo} className="me-n5 mt-5 pt-5 pe-lg-5 w-100 rounded-circle" alt=""/>
+                <div className="py-5 py-0-md py-lg-2"></div>
                 <div className="position-absolute text-end" style={{right: '0', bottom: '7.5%'}}>
                 <span className="text-light p-1 bg-dark d-inline-block">
                   Catching the mutants: introduction to mutation testing
