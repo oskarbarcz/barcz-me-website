@@ -30,7 +30,7 @@ export default function FooterBlock() {
     <>
       <img src={bottomSvg} className="w-100 mt-5" alt=""/>
       <div className="bg-dark text-light py-3">
-        <div className="container d-flex justify-content-between align-items-center">
+        <div className="container d-flex flex-column flex-sm-row justify-content-between align-items-center">
           <span className="py-3 d-block">© 2017-{currentYear} Oskar Barcz</span>
           <div className="fs-4">
             { socials.map((social, key) => (
