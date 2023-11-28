@@ -1,3 +1,5 @@
+import Anchor from "../consts/Anchor.jsx";
+
 export default function NavigationBlock() {
   return (
     <nav className="container navbar sticky-top navbar-expand-lg bg-body-tertiary">
@@ -9,23 +11,18 @@ export default function NavigationBlock() {
         <div className="collapse navbar-collapse flex-grow-0" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link" href={Anchor().getAnchorUrl(Anchor().root.top)}>
                 O mnie
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href={Anchor().getAnchorUrl(Anchor().root.technology)}>
                 Technologia
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href={Anchor().getAnchorUrl(Anchor().root.conferences)}>
                 Wystąpienia
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Kontakt
               </a>
             </li>
           </ul>
