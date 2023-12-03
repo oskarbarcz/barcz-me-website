@@ -56,7 +56,7 @@ export default function TechnologyBlock() {
 
   return (
     <div className="container py-5 mt-5 my-md-5" id={Anchor().root.technology}>
-      <div className="row gx-5 align-items-center">
+      <div className="row gx-md-5 align-items-center">
         <div className="col-12 col-md-6">
           <div className="mx-md-3 px-md-5">
             <img src={programmingSvg} className="w-100 d-block mx-auto mb-2 p-5" alt=""/>
