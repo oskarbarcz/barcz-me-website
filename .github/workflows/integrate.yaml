@@ -1,0 +1,13 @@
+name: "integrate"
+on:
+    pull_request:
+        paths: [ "**", "!**.md" ]
+jobs:
+    integrate:
+        runs-on: "ubuntu-22.04"
+        timeout-minutes: 3
+        steps:
+            - { name: "Clone git repository", uses: "actions/checkout@v3" }
+            - { name: "Install dependencies", run: "npm install --no-audit" }
+            - { name: "Build app", run: "npm run build" }
+            - { name: "Lint code", run: "npm run lint" }
