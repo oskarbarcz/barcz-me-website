@@ -1,6 +1,7 @@
 import bottomSvg from "../assets/vectors/footer.svg";
 import {Github, Linkedin, Messenger} from "react-bootstrap-icons";
 import FooterSocialIcon from "../components/FooterSocialIcon.jsx";
+import {useEffect} from "react";
 
 export default function FooterBlock() {
   const currentYear = new Date().getFullYear();
@@ -26,9 +27,18 @@ export default function FooterBlock() {
     }
   ];
 
+  useEffect(() => {
+    const updateSvgWidth = () => {
+      const svg = document.querySelector("#footer-svg");
+      svg.setAttribute("width", String(window.innerWidth));
+    };
+
+    window.addEventListener('resize', updateSvgWidth)
+  });
+
   return (
     <>
-      <img src={bottomSvg} className="w-100 mt-5" alt=""/>
+      <img src={bottomSvg} className="mt-5" alt="" id="footer-svg" />
       <div className="bg-dark text-light py-3">
         <div className="container d-flex flex-column flex-sm-row justify-content-between align-items-center">
           <span className="py-3 d-block">© 2017-{currentYear} Oskar Barcz</span>
