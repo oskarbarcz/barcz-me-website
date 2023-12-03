@@ -72,10 +72,10 @@ export default function TechnologyBlock() {
         <div className="col-12 col-md-6">
           <div className="d-flex flex-wrap" id="glossy-cards">
             {sections.map((section, i) =>
-              <>
-                <h3 className="text-light bg-dark p-1 h6 mb-0 mt-4">{section.title}</h3>
+              <div className="mt-4" key={i}>
+                <h3 className="text-light d-inline bg-dark p-1 h6 mb-0">{section.title}</h3>
                 <GlowingBoxes texts={section.technologies} key={i} />
-              </>
+              </div>
           )}
           </div>
         </div>
