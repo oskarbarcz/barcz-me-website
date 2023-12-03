@@ -34,7 +34,7 @@ export default function ConferencesBlock() {
   return (
     <>
       <div className="container my-lg-5 py-lg-5" id={Anchor().root.conferences}>
-        <div className="row gx-5 align-items-center">
+        <div className="row gx-lg-5 align-items-center">
           <div className="col-12 col-lg-6 order-2 order-lg-1 pe-lg-3">
             <section className="pe-lg-5 me-lg-5">
               <h2 className="text-light bg-dark mt-4 mt-lg-0 p-1 h6 d-inline-block">Ostatnie wystąpienia i publikacje</h2>
