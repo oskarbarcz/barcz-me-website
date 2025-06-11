@@ -1,4 +1,4 @@
-import photo from "../assets/photos/photo_oskar.jpg";
+import photo from "../assets/photos/photo_oskar.jpeg";
 
 export default function ProfilePictureBlob() {
   return (

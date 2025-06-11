@@ -1,7 +1,6 @@
 name: "integrate"
 on:
     pull_request:
-        paths: [ "**", "!**.md" ]
 jobs:
     integrate:
         runs-on: "ubuntu-latest"
