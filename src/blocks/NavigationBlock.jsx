@@ -1,30 +1,39 @@
+import {useState} from "react";
+import {List} from "react-bootstrap-icons";
 import Anchor from "../consts/Anchor.jsx";
 
 export default function NavigationBlock() {
+  const [open, setOpen] = useState(false);
+
+  const links = [
+    {label: "O mnie", href: Anchor().getAnchorUrl(Anchor().root.top)},
+    {label: "Technologia", href: Anchor().getAnchorUrl(Anchor().root.technology)},
+    {label: "Wystąpienia", href: Anchor().getAnchorUrl(Anchor().root.conferences)},
+  ];
+
   return (
-    <nav className="container navbar sticky-top navbar-expand-lg bg-body-tertiary">
-      <div className="container-fluid d-flex justify-content-between">
-        <a className="navbar-brand fw-bold text-primary" href="#">Oskar Barcz</a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
+    <nav className="sticky top-0 z-50 bg-light">
+      <div className="container mx-auto flex flex-wrap items-center justify-between px-3 py-2">
+        <a className="text-xl font-bold text-brand" href="#">Oskar Barcz</a>
+        <button
+          type="button"
+          className="rounded border border-gray-300 p-2 text-gray-700 lg:hidden"
+          aria-controls="navbarNav"
+          aria-expanded={open}
+          aria-label="Toggle navigation"
+          onClick={() => setOpen(!open)}
+        >
+          <List size={24}/>
         </button>
-        <div className="collapse navbar-collapse flex-grow-0" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <a className="nav-link" href={Anchor().getAnchorUrl(Anchor().root.top)}>
-                O mnie
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href={Anchor().getAnchorUrl(Anchor().root.technology)}>
-                Technologia
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href={Anchor().getAnchorUrl(Anchor().root.conferences)}>
-                Wystąpienia
-              </a>
-            </li>
+        <div className={`${open ? "block" : "hidden"} w-full lg:block lg:w-auto`} id="navbarNav">
+          <ul className="mt-3 flex flex-col lg:mt-0 lg:flex-row">
+            {links.map((link, key) => (
+              <li key={key}>
+                <a className="block px-3 py-2 text-gray-700 hover:text-brand" href={link.href}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

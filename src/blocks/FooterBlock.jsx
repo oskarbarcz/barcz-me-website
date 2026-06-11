@@ -44,11 +44,11 @@ export default function FooterBlock() {
 
   return (
     <>
-      <img src={bottomSvg} className="mt-5" alt="" id="footer-svg" />
-      <div className="bg-dark text-light py-3">
-        <div className="container d-flex flex-column flex-sm-row justify-content-between align-items-center">
-          <span className="py-3 d-block">© 2017-{currentYear} Oskar Barcz</span>
-          <div className="fs-4">
+      <img src={bottomSvg} className="mt-12" alt="" id="footer-svg" />
+      <div className="bg-dark py-4 text-light">
+        <div className="container mx-auto flex flex-col items-center justify-between px-3 sm:flex-row">
+          <span className="block py-4">© 2017-{currentYear} Oskar Barcz</span>
+          <div className="flex text-2xl">
             { socials.map((social, key) => (
               <FooterSocialIcon key={key} {...social} />
             )) }

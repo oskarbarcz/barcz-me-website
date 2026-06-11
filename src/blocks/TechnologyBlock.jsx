@@ -55,25 +55,25 @@ export default function TechnologyBlock() {
   const sections = [backendStack, frontendStack, devopsStack];
 
   return (
-    <div className="container py-5 mt-5 my-md-5" id={Anchor().root.technology}>
-      <div className="row gx-md-5 align-items-center">
-        <div className="col-12 col-md-6">
-          <div className="mx-md-3 px-md-5">
-            <img src={programmingSvg} className="w-100 d-block mx-auto mb-2 p-5" alt=""/>
+    <div className="container mx-auto mt-12 px-3 py-12 md:my-12" id={Anchor().root.technology}>
+      <div className="grid grid-cols-1 items-center gap-x-12 md:grid-cols-2">
+        <div>
+          <div className="md:mx-4 md:px-12">
+            <img src={programmingSvg} className="mx-auto mb-2 block w-full p-12" alt=""/>
           </div>
-          <h2 className="fw-bold display-3 my-4">Technologia</h2>
-          <p className="lead">
+          <h2 className="my-6 text-4xl font-bold md:text-5xl">Technologia</h2>
+          <p className="text-xl font-light">
             Już od najmłodszych lat fascynowałem się tym jak działa internet. Eksperymentując z różnymi językami i
             narzędziami wybrałem backend jako swoje główne środowisko pracy. Dziś, z pełnym profesjonalizmem, zajmuję
-            się tworzeniem <strong className="fw-bold">responsywnych, skalowalnych aplikacji serwerowych</strong> oraz
+            się tworzeniem <strong className="font-bold">responsywnych, skalowalnych aplikacji serwerowych</strong> oraz
             ich interfejsów skrojonych pod potrzebę klientów.
           </p>
         </div>
-        <div className="col-12 col-md-6">
-          <div className="d-flex flex-wrap" id="glossy-cards">
+        <div>
+          <div className="flex flex-wrap" id="glossy-cards">
             {sections.map((section, i) =>
-              <div className="mt-4" key={i}>
-                <h3 className="text-light d-inline bg-dark p-1 h6 mb-0">{section.title}</h3>
+              <div className="mt-6" key={i}>
+                <h3 className="inline bg-dark p-1 text-base font-medium text-light">{section.title}</h3>
                 <GlowingBoxes texts={section.technologies} key={i} />
               </div>
           )}

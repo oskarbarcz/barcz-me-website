@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 
 export default function FooterSocialIcon({name, title, url, icon }) {
   return (
-    <a className="mx-2 text-light contact-link" title={title} href={url}>
+    <a className="mx-2 inline-flex items-center text-light contact-link" title={title} href={url}>
       {icon}
-      <span className="visually-hidden">{name}</span>
+      <span className="sr-only">{name}</span>
     </a>
   )
 }

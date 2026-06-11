@@ -3,22 +3,22 @@ import ProfilePictureBlob from "../components/ProfilePictureBlob.jsx";
 export default function HeroBlock() {
 
   return (
-      <section className="py-3 py-lg-5">
-        <div className="container my-lg-5 py-lg-5 d-flex align-items-center">
-          <div className="row align-items-center">
-            <div className="col-12 col-md-8 order-2 order-md-1">
+      <section className="py-4 lg:py-12">
+        <div className="container mx-auto flex items-center px-3 lg:my-12 lg:py-12">
+          <div className="grid grid-cols-1 items-center md:grid-cols-12">
+            <div className="order-2 md:order-1 md:col-span-8">
               <div>
-                <h1 className="display-1 fw-bold my-5">
-                  Cześć, jestem <span className="text-primary text-glow">Oskar</span>
+                <h1 className="my-12 text-6xl font-bold lg:text-7xl">
+                  Cześć, jestem <span className="text-brand text-glow">Oskar</span>
                 </h1>
-                <article className="lead fs-3">
-                  <span className="bg-dark text-light py-1 px-1">
+                <article className="text-3xl font-light">
+                  <span className="bg-dark px-1 py-1 text-light">
                     zawodowo tworzę oprogramowanie, występuję na konferencjach i działam w społeczności
                   </span>
                 </article>
               </div>
             </div>
-            <div className="col-12 col-md-4 order-1 order-lg-2 text-center">
+            <div className="order-1 text-center md:col-span-4 lg:order-2">
               <ProfilePictureBlob/>
             </div>
           </div>
