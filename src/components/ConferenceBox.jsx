@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
 
 export default function ConferenceBox({name, place, isRight}) {
-  let classList = "my-2 border border-2 p-2 w-75 rounded rounded-3";
+  let classList = "my-2 w-3/4 rounded-lg border-2 border-gray-300 p-2";
   if (isRight) {
-    classList += " ms-auto";
+    classList += " ml-auto";
   }
 
   return (
     <article className={classList}>
-      <h3 className="fs-5 fw-bold text-secondary">{name}</h3>
-      <span className="text-muted">{place}</span>
+      <h3 className="text-xl font-bold text-gray-600">{name}</h3>
+      <span className="text-gray-500">{place}</span>
     </article>
   )
 }

@@ -16,7 +16,7 @@ export default function GlowingBoxes({texts}) {
   }
 
   return (
-    <div onMouseMove={e => onMouseMove(e)} className="my-2 d-flex flex-wrap glowing-boxes">
+    <div onMouseMove={e => onMouseMove(e)} className="my-2 flex flex-wrap glowing-boxes">
       {texts.map((content, i) => (
         <GlowingBox content={content} key={i} />
       ))}

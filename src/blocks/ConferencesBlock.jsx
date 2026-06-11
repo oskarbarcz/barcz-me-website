@@ -33,33 +33,33 @@ export default function ConferencesBlock() {
 
   return (
     <>
-      <div className="container my-lg-5 py-lg-5" id={Anchor().root.conferences}>
-        <div className="row gx-lg-5 align-items-center">
-          <div className="col-12 col-lg-6 order-2 order-lg-1 pe-lg-3">
-            <section className="pe-lg-5 me-lg-5">
-              <h2 className="text-light bg-dark mt-4 mt-lg-0 p-1 h6 d-inline-block">Ostatnie wystąpienia i publikacje</h2>
+      <div className="container mx-auto px-3 lg:my-12 lg:py-12" id={Anchor().root.conferences}>
+        <div className="grid grid-cols-1 items-center gap-x-12 lg:grid-cols-2">
+          <div className="order-2 lg:order-1 lg:pr-4">
+            <section className="lg:mr-12 lg:pr-12">
+              <h2 className="mt-6 inline-block bg-dark p-1 text-base font-medium text-light lg:mt-0">Ostatnie wystąpienia i publikacje</h2>
               { lastConferences.map((conference, key) => (
                 <ConferenceBox key={key} {...conference} isRight={key % 2 === 1} />
               )) }
             </section>
           </div>
-          <div className="col-12 col-lg-6 order-1 order-lg-2">
+          <div className="order-1 lg:order-2">
             <section>
-              <h2 className="fw-bold display-3 my-4">Wystąpienia</h2>
-              <article className="lead">
+              <h2 className="my-6 text-4xl font-bold md:text-5xl">Wystąpienia</h2>
+              <article className="text-xl font-light">
                 Regularnie uczestniczę jako prelegent w konferencjach, gdzie moje wystąpienia skupiają się na tematyce
                 technologii serwerowych i tematach powiązanych. Podczas debat kładę nacisk na projektowanie aplikacji
                 bezpiecznych przy wsparciu nowych technologii, przedstawiam, analizuję i konsultuję rozwiązania z
                 zakresu cyberbezpieczeństwa.
               </article>
-              <article className="position-relative">
-                <img src={photo} className="me-n5 mt-5 pt-5 pe-lg-5 w-100 rounded-circle" alt=""/>
-                <div className="py-5 py-0-md py-lg-2"></div>
-                <div className="position-absolute text-end" style={{right: '0', bottom: '7.5%'}}>
-                <span className="text-light p-1 bg-dark d-inline-block">
+              <article className="relative">
+                <img src={photo} className="-mr-12 mt-12 w-full rounded-full pt-12 lg:pr-12" alt=""/>
+                <div className="py-12 lg:py-2"></div>
+                <div className="absolute text-right" style={{right: '0', bottom: '7.5%'}}>
+                <span className="inline-block bg-dark p-1 text-light">
                   Catching the mutants: introduction to mutation testing
                 </span>
-                  <span className="text-light p-1 bg-dark d-inline-block fs-5">PHPers Summit 2022, Poznań</span>
+                  <span className="inline-block bg-dark p-1 text-xl text-light">PHPers Summit 2022, Poznań</span>
                 </div>
               </article>
             </section>
