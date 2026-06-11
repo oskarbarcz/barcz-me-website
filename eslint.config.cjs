@@ -9,7 +9,7 @@ const {
     fixupConfigRules,
 } = require("@eslint/compat");
 
-const reactRefresh = require("eslint-plugin-react-refresh");
+const reactRefresh = require("eslint-plugin-react-refresh").default;
 const js = require("@eslint/js");
 
 const {
