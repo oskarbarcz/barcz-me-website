@@ -1,35 +1,13 @@
 import photo from '../assets/photos/photo_oskar_phpers.jpg'
 import Anchor from "../consts/Anchor.jsx";
 import ConferenceBox from "../components/ConferenceBox.jsx";
+import useEvents from "../hooks/useEvents.js";
+
+const MAX_EVENTS = 6;
 
 export default function ConferencesBlock() {
 
-  const lastConferences = [
-    {
-      name: "Debata: Sposoby walki z cyberprzestępczością",
-      place: "Warsaw Enterprise Institute, zdalnie"
-    },
-    {
-      name: "Debata: Wolność w internecie",
-      place: "Warsaw Enterprise Institute, Warszawa"
-    },
-    {
-      name: "Podróż od CRUDów do działania opartego o akcje",
-      place: "NoExceptions by Boldare, zdalnie"
-    },
-    {
-      name: "Catching the mutants: Wprowadzenie do testów mutacyjnych",
-      place: "PHPers Summit 2022, Poznań"
-    },
-    {
-      name: "Era post-quantum w kontekście bezpieczeństwa aplikacji webowych",
-      place: "PHPers Silesia Meetup 2022, Katowice"
-    },
-    {
-      name: "Projektowanie modularnych systemów: CQS, CQRS, Event Sourcing",
-      place: "PHPers Summit 2021, Poznań"
-    },
-  ];
+  const {events, status} = useEvents(MAX_EVENTS);
 
   return (
     <>
@@ -38,8 +16,14 @@ export default function ConferencesBlock() {
           <div className="order-2 lg:order-1 lg:pr-4">
             <section className="lg:mr-12 lg:pr-12">
               <h2 className="mt-6 inline-block bg-dark p-1 text-base font-medium text-light lg:mt-0">Ostatnie wystąpienia i publikacje</h2>
-              { lastConferences.map((conference, key) => (
-                <ConferenceBox key={key} {...conference} isRight={key % 2 === 1} />
+              { status === "loading" && (
+                <p className="mt-4 text-gray-500">Ładowanie wydarzeń…</p>
+              ) }
+              { status === "error" && (
+                <p className="mt-4 text-gray-500">Nie udało się załadować wydarzeń.</p>
+              ) }
+              { status === "ready" && events.map((event, key) => (
+                <ConferenceBox key={event.slug} name={event.title} place={event.city} isRight={key % 2 === 1} />
               )) }
             </section>
           </div>
