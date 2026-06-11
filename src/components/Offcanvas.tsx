@@ -9,8 +9,8 @@ export default function Offcanvas () {
   }
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 h-auto bg-white shadow-2xl" tabIndex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-      <div className="container mx-auto px-3">
+    <div className="fixed inset-x-0 bottom-0 z-50 h-auto bg-white shadow-2xl" tabIndex={-1} id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+      <div className="max-w-7xl mx-auto px-3">
         <div className="flex items-center justify-between py-6">
           <h2 className="text-3xl font-bold" id="offcanvasBottomLabel">Zapraszam na PHPers Wrocław!</h2>
           <button type="button" className="text-2xl text-gray-600 hover:text-gray-900" aria-label="Close" onClick={() => setShow(false)}>

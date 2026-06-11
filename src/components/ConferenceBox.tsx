@@ -1,6 +1,10 @@
-import PropTypes from "prop-types";
+interface ConferenceBoxProps {
+  name: string;
+  place: string;
+  isRight: boolean;
+}
 
-export default function ConferenceBox({name, place, isRight}) {
+export default function ConferenceBox({name, place, isRight}: ConferenceBoxProps) {
   let classList = "my-2 w-3/4 rounded-lg border-2 border-gray-300 p-2";
   if (isRight) {
     classList += " ml-auto";
@@ -12,10 +16,4 @@ export default function ConferenceBox({name, place, isRight}) {
       <span className="text-gray-500">{place}</span>
     </article>
   )
-}
-
-ConferenceBox.propTypes = {
-  name: PropTypes.string.isRequired,
-  place: PropTypes.string.isRequired,
-  isRight: PropTypes.bool.isRequired
 }

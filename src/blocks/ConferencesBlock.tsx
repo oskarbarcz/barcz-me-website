@@ -1,7 +1,7 @@
 import photo from '../assets/photos/photo_oskar_phpers.jpg'
-import Anchor from "../consts/Anchor.jsx";
-import ConferenceBox from "../components/ConferenceBox.jsx";
-import useEvents from "../hooks/useEvents.js";
+import Anchor from "../consts/Anchor.ts";
+import ConferenceBox from "../components/ConferenceBox.tsx";
+import useEvents from "../hooks/useEvents.ts";
 
 const MAX_EVENTS = 6;
 
@@ -11,7 +11,7 @@ export default function ConferencesBlock() {
 
   return (
     <>
-      <div className="container mx-auto px-3 lg:my-12 lg:py-12" id={Anchor().root.conferences}>
+      <div className="max-w-7xl mx-auto px-3 lg:my-12 lg:py-12" id={Anchor().root.conferences}>
         <div className="grid grid-cols-1 items-center gap-x-12 lg:grid-cols-2">
           <div className="order-2 lg:order-1 lg:pr-4">
             <section className="lg:mr-12 lg:pr-12">
@@ -25,6 +25,11 @@ export default function ConferencesBlock() {
               { status === "ready" && events.map((event, key) => (
                 <ConferenceBox key={event.slug} name={event.title} place={event.city} isRight={key % 2 === 1} />
               )) }
+              { status === "ready" && (
+                <a className="mt-4 inline-block font-medium text-brand hover:underline" href="https://blog.barcz.me/events/" target="_blank" rel="noopener noreferrer">
+                  Więcej wydarzeń znajdziesz na moim blogu →
+                </a>
+              ) }
             </section>
           </div>
           <div className="order-1 lg:order-2">

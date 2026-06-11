@@ -1,7 +1,10 @@
-import PropTypes from "prop-types";
 import '../styles/GlowingBox.css'
 
-export default function GlowingBox({content}) {
+interface GlowingBoxProps {
+  content: string;
+}
+
+export default function GlowingBox({content}: GlowingBoxProps) {
 
   return (
     <div className="glowing-box m-1 text-xl font-bold text-gray-600">
@@ -11,8 +14,4 @@ export default function GlowingBox({content}) {
       </div>
     </div>
   )
-}
-
-GlowingBox.propTypes = {
-  content: PropTypes.string.isRequired
 }

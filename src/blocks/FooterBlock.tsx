@@ -1,6 +1,6 @@
 import bottomSvg from "../assets/vectors/footer.svg";
 import {Github, Instagram, Linkedin, Messenger} from "react-bootstrap-icons";
-import FooterSocialIcon from "../components/FooterSocialIcon.jsx";
+import FooterSocialIcon from "../components/FooterSocialIcon.tsx";
 import {useEffect} from "react";
 
 export default function FooterBlock() {
@@ -36,7 +36,7 @@ export default function FooterBlock() {
   useEffect(() => {
     const updateSvgWidth = () => {
       const svg = document.querySelector("#footer-svg");
-      svg.setAttribute("width", String(window.innerWidth));
+      svg?.setAttribute("width", String(window.innerWidth));
     };
 
     window.addEventListener('resize', updateSvgWidth)
@@ -46,7 +46,7 @@ export default function FooterBlock() {
     <>
       <img src={bottomSvg} className="mt-12" alt="" id="footer-svg" />
       <div className="bg-dark py-4 text-light">
-        <div className="container mx-auto flex flex-col items-center justify-between px-3 sm:flex-row">
+        <div className="max-w-7xl mx-auto flex flex-col items-center justify-between px-3 sm:flex-row">
           <span className="block py-4">© 2017-{currentYear} Oskar Barcz</span>
           <div className="flex text-2xl">
             { socials.map((social, key) => (

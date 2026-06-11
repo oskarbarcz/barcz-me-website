@@ -1,10 +1,10 @@
-import ProfilePictureBlob from "../components/ProfilePictureBlob.jsx";
+import ProfilePictureBlob from "../components/ProfilePictureBlob.tsx";
 
 export default function HeroBlock() {
 
   return (
       <section className="py-4 lg:py-12">
-        <div className="container mx-auto flex items-center px-3 lg:my-12 lg:py-12">
+        <div className="max-w-7xl mx-auto flex items-center px-3 lg:my-12 lg:py-12">
           <div className="grid grid-cols-1 items-center md:grid-cols-12">
             <div className="order-2 md:order-1 md:col-span-8">
               <div>
