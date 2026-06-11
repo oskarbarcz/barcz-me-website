@@ -6,7 +6,7 @@ export default function Anchor() {
       conferences: "conferences"
     },
 
-    getAnchorUrl(anchor) {
+    getAnchorUrl(anchor: string) {
       return "#" + anchor;
     }
   }

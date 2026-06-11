@@ -1,9 +1,9 @@
-import HeroBlock from "../blocks/HeroBlock.jsx";
-import FooterBlock from "../blocks/FooterBlock.jsx";
-import TechnologyBlock from "../blocks/TechnologyBlock.jsx";
-import ConferencesBlock from "../blocks/ConferencesBlock.jsx";
-import NavigationBlock from "../blocks/NavigationBlock.jsx";
-import Offcanvas from "../components/Offcanvas.jsx";
+import HeroBlock from "../blocks/HeroBlock.tsx";
+import FooterBlock from "../blocks/FooterBlock.tsx";
+import TechnologyBlock from "../blocks/TechnologyBlock.tsx";
+import ConferencesBlock from "../blocks/ConferencesBlock.tsx";
+import NavigationBlock from "../blocks/NavigationBlock.tsx";
+import Offcanvas from "../components/Offcanvas.tsx";
 
 export default function RootRoute() {
 

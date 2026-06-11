@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {List} from "react-bootstrap-icons";
-import Anchor from "../consts/Anchor.jsx";
+import Anchor from "../consts/Anchor.ts";
 
 export default function NavigationBlock() {
   const [open, setOpen] = useState(false);
@@ -13,7 +13,7 @@ export default function NavigationBlock() {
 
   return (
     <nav className="sticky top-0 z-50 bg-light">
-      <div className="container mx-auto flex flex-wrap items-center justify-between px-3 py-2">
+      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-3 py-2">
         <a className="text-xl font-bold text-brand" href="#">Oskar Barcz</a>
         <button
           type="button"

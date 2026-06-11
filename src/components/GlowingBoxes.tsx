@@ -1,11 +1,15 @@
-import PropTypes from "prop-types";
-import GlowingBox from "./GlowingBox.jsx";
+import type {MouseEvent} from "react";
+import GlowingBox from "./GlowingBox.tsx";
 
 import '../styles/GlowingBoxes.css'
 
-export default function GlowingBoxes({texts}) {
-  const onMouseMove = event => {
-    for(const element of document.querySelectorAll('.glowing-box')) {
+interface GlowingBoxesProps {
+  texts: string[];
+}
+
+export default function GlowingBoxes({texts}: GlowingBoxesProps) {
+  const onMouseMove = (event: MouseEvent<HTMLDivElement>) => {
+    for (const element of document.querySelectorAll<HTMLElement>('.glowing-box')) {
       const rect = element.getBoundingClientRect(),
         x = event.clientX - rect.left,
         y = event.clientY - rect.top;
@@ -22,8 +26,4 @@ export default function GlowingBoxes({texts}) {
       ))}
   </div>
   )
-}
-
-GlowingBoxes.propTypes = {
-  texts: PropTypes.arrayOf(PropTypes.string).isRequired
 }

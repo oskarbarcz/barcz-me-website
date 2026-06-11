@@ -2,9 +2,11 @@ import {useEffect, useState} from "react";
 
 const BLOG_URL = import.meta.env.VITE_BLOG_URL;
 
-export default function useBlogData(endpoint) {
-  const [data, setData] = useState(null);
-  const [status, setStatus] = useState("loading");
+export type FetchStatus = "loading" | "ready" | "error";
+
+export default function useBlogData<T>(endpoint: string) {
+  const [data, setData] = useState<T | null>(null);
+  const [status, setStatus] = useState<FetchStatus>("loading");
 
   useEffect(() => {
     const controller = new AbortController();
@@ -14,14 +16,14 @@ export default function useBlogData(endpoint) {
         if (!response.ok) {
           throw new Error(`Request failed with status ${response.status}`);
         }
-        return response.json();
+        return response.json() as Promise<T>;
       })
       .then((payload) => {
         setData(payload);
         setStatus("ready");
       })
-      .catch((error) => {
-        if (error.name !== "AbortError") {
+      .catch(() => {
+        if (!controller.signal.aborted) {
           setStatus("error");
         }
       });

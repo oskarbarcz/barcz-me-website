@@ -11,6 +11,7 @@ const {
 
 const reactRefresh = require("eslint-plugin-react-refresh").default;
 const js = require("@eslint/js");
+const tseslint = require("typescript-eslint");
 
 const {
     FlatCompat,
@@ -22,37 +23,42 @@ const compat = new FlatCompat({
     allConfig: js.configs.all
 });
 
-module.exports = defineConfig([{
-    languageOptions: {
-        globals: {
-            ...globals.browser,
+module.exports = defineConfig([
+    ...tseslint.configs.recommended,
+    {
+        languageOptions: {
+            globals: {
+                ...globals.browser,
+            },
+
+            ecmaVersion: "latest",
+            sourceType: "module",
+            parserOptions: {},
         },
 
-        ecmaVersion: "latest",
-        sourceType: "module",
-        parserOptions: {},
-    },
+        extends: fixupConfigRules(compat.extends(
+            "eslint:recommended",
+            "plugin:react/recommended",
+            "plugin:react/jsx-runtime",
+            "plugin:react-hooks/recommended",
+        )),
 
-    extends: fixupConfigRules(compat.extends(
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:react/jsx-runtime",
-        "plugin:react-hooks/recommended",
-    )),
+        settings: {
+            react: {
+                version: "detect",
+            },
+        },
 
-    settings: {
-        react: {
-            version: "18.2",
+        plugins: {
+            "react-refresh": reactRefresh,
+        },
+
+        rules: {
+            "react-refresh/only-export-components": ["warn", {
+                allowConstantExport: true,
+            }],
+            "react/prop-types": "off",
         },
     },
-
-    plugins: {
-        "react-refresh": reactRefresh,
-    },
-
-    rules: {
-        "react-refresh/only-export-components": ["warn", {
-            allowConstantExport: true,
-        }],
-    },
-}, globalIgnores(["**/dist", "**/eslint.config.cjs"])]);
+    globalIgnores(["**/dist", "**/eslint.config.cjs"]),
+]);
