@@ -2,6 +2,7 @@ export default function Anchor() {
   return {
     root: {
       top: "",
+      achievements: "achievements",
       technology: "technology",
       conferences: "conferences"
     },

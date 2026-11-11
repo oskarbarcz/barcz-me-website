@@ -1,12 +1,12 @@
 import {useEffect, useState} from "react";
 import type {ComponentType, SVGProps} from "react";
-import {CpuFill, JournalText, MicFill, PersonFill} from "react-bootstrap-icons";
+import {CpuFill, JournalText, MicFill, PersonFill, TrophyFill} from "react-bootstrap-icons";
 import Anchor from "../consts/Anchor.ts";
 import useI18n from "../i18n/context.ts";
 
 const BLOG_URL = "https://blog.barcz.me/";
 
-const SECTIONS = [Anchor().root.technology, Anchor().root.conferences];
+const SECTIONS = [Anchor().root.achievements, Anchor().root.technology, Anchor().root.conferences];
 
 /**
  * Mirrors the navigation of blog.barcz.me class for class, so both sites share
@@ -19,6 +19,7 @@ export default function NavigationBlock() {
 
   const links: {id: string, label: string, href: string, icon: ComponentType<SVGProps<SVGSVGElement>>, external?: boolean}[] = [
     {id: Anchor().root.top, label: t.navigation.links.top, href: Anchor().getAnchorUrl(Anchor().root.top), icon: PersonFill},
+    {id: Anchor().root.achievements, label: t.navigation.links.achievements, href: Anchor().getAnchorUrl(Anchor().root.achievements), icon: TrophyFill},
     {id: Anchor().root.technology, label: t.navigation.links.technology, href: Anchor().getAnchorUrl(Anchor().root.technology), icon: CpuFill},
     {id: Anchor().root.conferences, label: t.navigation.links.conferences, href: Anchor().getAnchorUrl(Anchor().root.conferences), icon: MicFill},
     {id: "blog", label: t.navigation.links.blog, href: BLOG_URL, icon: JournalText, external: true},

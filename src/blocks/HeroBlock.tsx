@@ -22,7 +22,7 @@ export default function HeroBlock() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               className="inline-flex items-center gap-2 rounded-md bg-brand-600 px-4 py-2 font-mono text-sm font-medium text-white shadow transition-colors duration-150 hover:bg-brand-700 focus:ring-2 focus:ring-brand-500 focus:outline-none"
-              href={Anchor().getAnchorUrl(Anchor().root.technology)}
+              href={Anchor().getAnchorUrl(Anchor().root.achievements)}
             >
               {t.hero.primaryButton}
               <ArrowIcon className="h-4 w-4" aria-hidden/>
