@@ -1,12 +1,13 @@
-import ProfilePictureBlob from "../components/ProfilePictureBlob.tsx";
+import HeroPortrait from "../components/HeroPortrait.tsx";
+import LatestTalk from "../components/LatestTalk.tsx";
 import ArrowIcon from "../components/ArrowIcon.tsx";
 import Anchor from "../consts/Anchor.ts";
 
 export default function HeroBlock() {
   return (
-    <section className="py-12 md:py-24">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 md:grid-cols-12 lg:px-8">
-        <div className="md:col-span-7">
+    <section className="relative overflow-hidden border-b border-gray-200 pt-12 md:pt-16">
+      <div className="mx-auto grid max-w-7xl items-center gap-x-12 gap-y-4 px-4 sm:px-6 md:grid-cols-12 lg:px-8">
+        <div className="md:col-span-7 md:pb-16">
           <h1 className="text-4xl font-bold text-gray-900 lg:text-[2.5rem] lg:whitespace-nowrap xl:text-5xl">
             Cześć, jestem <span className="whitespace-nowrap text-brand-600">Oskar Barcz</span>
           </h1>
@@ -33,9 +34,11 @@ export default function HeroBlock() {
               <ArrowIcon className="h-4 w-4 -rotate-45" aria-hidden/>
             </a>
           </div>
+          <LatestTalk/>
         </div>
-        <div className="md:col-span-5">
-          <ProfilePictureBlob/>
+        {/* The figure stands on the section's bottom edge */}
+        <div className="self-end md:col-span-5">
+          <HeroPortrait/>
         </div>
       </div>
     </section>
