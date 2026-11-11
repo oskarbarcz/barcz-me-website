@@ -1,7 +1,6 @@
 import bottomSvg from "../assets/vectors/footer.svg";
 import {Github, Instagram, Linkedin, Messenger} from "react-bootstrap-icons";
 import FooterSocialIcon from "../components/FooterSocialIcon.tsx";
-import {useEffect} from "react";
 
 export default function FooterBlock() {
   const currentYear = new Date().getFullYear();
@@ -26,25 +25,16 @@ export default function FooterBlock() {
       icon: <Messenger/>
     },
     {
-      name: "GitHub",
+      name: "Instagram",
       title: "Obserwuj mnie na Instagramie",
       url: "https://instagram.com/oskar.barcz",
       icon: <Instagram/>
     }
   ];
 
-  useEffect(() => {
-    const updateSvgWidth = () => {
-      const svg = document.querySelector("#footer-svg");
-      svg?.setAttribute("width", String(window.innerWidth));
-    };
-
-    window.addEventListener('resize', updateSvgWidth)
-  });
-
   return (
     <>
-      <img src={bottomSvg} className="mt-12" alt="" id="footer-svg" />
+      <img src={bottomSvg} className="mt-12 block w-full" alt=""/>
       <div className="bg-dark py-4 text-light">
         <div className="max-w-7xl mx-auto flex flex-col items-center justify-between px-3 sm:flex-row">
           <span className="block py-4">© 2017-{currentYear} Oskar Barcz</span>
