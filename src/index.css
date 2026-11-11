@@ -4,8 +4,6 @@
   --color-brand: #40bf7e;
   --color-dark: #212529;
   --color-light: #f8f9fa;
-
-  --font-slab: 'Roboto Slab', serif;
 }
 
 :root {
@@ -32,14 +30,6 @@ body {
 
 .text-glow {
   text-shadow: 1px 1px 100px var(--brand-color);
-}
-
-.bg-glassy {
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(70, 70, 70, 0.18);
 }
 
 .contact-link:hover {
