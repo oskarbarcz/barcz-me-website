@@ -1,50 +1,35 @@
-import bottomSvg from "../assets/vectors/footer.svg";
-import {Github, Instagram, Linkedin, Messenger} from "react-bootstrap-icons";
-import FooterSocialIcon from "../components/FooterSocialIcon.tsx";
+const socials = [
+  {name: "github", url: "https://github.com/oskarbarcz"},
+  {name: "linkedin", url: "https://www.linkedin.com/in/oskarbarcz/"},
+  {name: "messenger", url: "https://m.me/oskar.barcz"},
+  {name: "instagram", url: "https://instagram.com/oskar.barcz"},
+  {name: "blog ↗", url: "https://blog.barcz.me/"},
+];
 
 export default function FooterBlock() {
   const currentYear = new Date().getFullYear();
 
-  const socials = [
-    {
-      name: "GitHub",
-      title: "Zobacz mój profil na GitHub",
-      url: "https://github.com/oskarbarcz",
-      icon: <Github/>
-    },
-    {
-      name: "LinkedIn",
-      title: "Skontaktuj się na LinkedIn",
-      url: "https://www.linkedin.com/in/oskarbarcz/",
-      icon: <Linkedin/>
-    },
-    {
-      name: "Messenger",
-      title: "Napisz do mnie na Messengerze",
-      url: "https://m.me/oskar.barcz",
-      icon: <Messenger/>
-    },
-    {
-      name: "Instagram",
-      title: "Obserwuj mnie na Instagramie",
-      url: "https://instagram.com/oskar.barcz",
-      icon: <Instagram/>
-    }
-  ];
-
   return (
-    <>
-      <img src={bottomSvg} className="mt-12 block w-full" alt=""/>
-      <div className="bg-dark py-4 text-light">
-        <div className="max-w-7xl mx-auto flex flex-col items-center justify-between px-3 sm:flex-row">
-          <span className="block py-4">© 2017-{currentYear} Oskar Barcz</span>
-          <div className="flex text-2xl">
-            { socials.map((social, key) => (
-              <FooterSocialIcon key={key} {...social} />
-            )) }
-          </div>
-        </div>
+    <footer className="mt-12 border-t border-gray-200 bg-white">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-8 font-mono sm:px-6 md:flex-row lg:px-8">
+        <span className="text-sm text-gray-600">© 2017–{currentYear} Oskar Barcz</span>
+        <ul className="grid grid-cols-2 justify-items-center gap-x-6 gap-y-3 text-xs sm:flex sm:flex-wrap sm:gap-x-4">
+          {socials.map((social) => (
+            <li key={social.name}>
+              <a
+                className="inline-flex items-center gap-1 text-gray-500 transition-colors hover:text-brand-700"
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="text-gray-400" aria-hidden>[</span>
+                {social.name}
+                <span className="text-gray-400" aria-hidden>]</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-    </>
-  )
+    </footer>
+  );
 }
