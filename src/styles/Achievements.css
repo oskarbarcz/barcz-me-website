@@ -15,6 +15,80 @@
 
 .bento-gallery { grid-area: gallery; }
 
+/* A talk: the text, then a globe with the city marked and the photos hanging off it */
+.bento.bento--map {
+  grid-template-areas: "text" "map";
+}
+
+.bento-map { grid-area: map; }
+
+/* Young talents, a 2 × 2 when pinned: each point's text beside its own row of photos. Stacked: text, photos, text, photos */
+.bento.bento--points {
+  grid-template-areas: "text" "photos1" "text2" "photos2";
+}
+
+.bento-point-photos-1 { grid-area: photos1; }
+.bento-point-photos-2 { grid-area: photos2; }
+.bento-point-text-2 { grid-area: text2; }
+
+.bento-point-photos img {
+  aspect-ratio: 3 / 4;
+}
+
+.talk-map {
+  display: grid;
+  gap: 1rem;
+}
+
+.talk-map-globe {
+  width: 100%;
+  max-width: 20rem;
+  margin-inline: auto;
+}
+
+.talk-map-lines {
+  display: none;
+}
+
+.talk-map-photo {
+  aspect-ratio: 4 / 3;
+}
+
+/* From sm the composition holds together: 600 × 560, globe left, photos right (see TalkGlobe.tsx) */
+@media (min-width: 640px) {
+  .talk-map {
+    display: block;
+    position: relative;
+    aspect-ratio: 600 / 560;
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+
+  .talk-map-globe {
+    position: absolute;
+    left: 0;
+    top: calc(100 / 560 * 100%);
+    width: calc(400 / 600 * 100%);
+    max-width: none;
+  }
+
+  .talk-map-lines {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .talk-map-photo {
+    position: absolute;
+    top: var(--top);
+    left: calc(372 / 600 * 100%);
+    width: calc(228 / 600 * 100%);
+  }
+}
+
 .bento-gallery img {
   aspect-ratio: 3 / 4;
 }
@@ -66,6 +140,18 @@
 
   .bento:not(.bento--photos) {
     grid-template-areas: "text text" "gallery gallery" "stats stats" "list list";
+  }
+
+  .bento.bento--map {
+    grid-template-areas: "text text" "map map";
+  }
+
+  .bento.bento--points {
+    grid-template-areas: "text text" "photos1 photos1" "text2 text2" "photos2 photos2";
+  }
+
+  .bento-point-photos img {
+    aspect-ratio: 4 / 3;
   }
 }
 
@@ -142,6 +228,47 @@
     grid-template-rows: minmax(0, 1fr) auto;
     row-gap: 2rem;
     grid-template-areas: "text gallery" "text stats";
+  }
+
+  .bento.bento--map {
+    grid-template-columns: 5fr 7fr;
+    grid-template-rows: minmax(0, 1fr);
+    grid-template-areas: "text map";
+  }
+
+  /* Each text sits against its own photos: the title cell at its bottom, the second text at its top */
+  .bento.bento--points {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.5rem 2.5rem;
+    grid-template-areas: "text photos2" "photos1 text2";
+  }
+
+  .bento--points .bento-text {
+    align-self: end;
+  }
+
+  .bento-point-photos {
+    min-height: 0;
+  }
+
+  .bento-point-photos img {
+    aspect-ratio: auto;
+  }
+
+  /* The composition keeps its proportions and takes as much of the cell as fits */
+  .bento-map {
+    min-height: 0;
+    container-type: size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bento-map .talk-map {
+    width: min(100cqw, calc(100cqh * 600 / 560));
+    max-width: none;
+    margin: 0;
   }
 
   .bento-gallery {

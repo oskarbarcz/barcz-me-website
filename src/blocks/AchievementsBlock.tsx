@@ -8,11 +8,21 @@ import PartnerMarquee from "../components/PartnerMarquee.tsx";
 import mlodziWyborcyLogo from "../assets/logos/mlodzi-wyborcy.svg";
 import generacjaInnowacjaLogo from "../assets/logos/generacja-innowacja.svg";
 import myPoliticsLogo from "../assets/logos/mypolitics.svg";
+import symfonyDayLogo from "../assets/logos/symfonyday-montreal.png";
+import TalkGlobe from "../components/TalkGlobe.tsx";
 import premieraPhoto from "../assets/photos/achievements/premiera-raportu.jpg";
 import belwederPhoto from "../assets/photos/achievements/belweder.jpg";
 import warsztatyPhoto from "../assets/photos/achievements/fundacja-warsztaty.jpg";
 import zespolPhoto from "../assets/photos/achievements/fundacja-zespol.jpg";
 import prezentacjaPhoto from "../assets/photos/achievements/fundacja-prezentacja.jpg";
+import symfonyDayScenePhoto from "../assets/photos/achievements/symfonyday-montreal-scena.jpg";
+import symfonyDayTalkPhoto from "../assets/photos/achievements/symfonyday-montreal-prelekcja.jpg";
+import talentyAulaPhoto from "../assets/photos/achievements/talenty-szkola-aula.jpg";
+import talentyPracowniaPhoto from "../assets/photos/achievements/talenty-szkola-pracownia.jpg";
+import talentyPraktykiPhoto from "../assets/photos/achievements/talenty-praktyki.jpg";
+import gameJamTeamPhoto from "../assets/photos/achievements/gamejam-zespol.jpg";
+import gameJamKitchenPhoto from "../assets/photos/achievements/gamejam-kuchnia.jpg";
+import gameJamPixelArtPhoto from "../assets/photos/achievements/gamejam-pixel-art.jpg";
 import '../styles/Achievements.css';
 
 // Młodzi Wyborcy is a myPolitics product, so it carries the parent brand on its left
@@ -21,6 +31,7 @@ const LOGOS: Record<string, {src: string, alt: string, className: string}[]> = {
     {src: myPoliticsLogo, alt: "myPolitics", className: "h-7"},
     {src: mlodziWyborcyLogo, alt: "Młodzi Wyborcy '25", className: "h-9"},
   ],
+  "symfonyday-montreal": [{src: symfonyDayLogo, alt: "SymfonyDay Montreal 2026", className: "h-10"}],
   "generacja-innowacja": [{src: generacjaInnowacjaLogo, alt: "Fundacja Generacja Innowacja", className: "h-8"}],
 };
 
@@ -30,6 +41,14 @@ const PHOTOS: Record<string, string> = {
   "fundacja-warsztaty": warsztatyPhoto,
   "fundacja-zespol": zespolPhoto,
   "fundacja-prezentacja": prezentacjaPhoto,
+  "symfonyday-scena": symfonyDayScenePhoto,
+  "symfonyday-prelekcja": symfonyDayTalkPhoto,
+  "talenty-szkola-aula": talentyAulaPhoto,
+  "talenty-szkola-pracownia": talentyPracowniaPhoto,
+  "talenty-praktyki": talentyPraktykiPhoto,
+  "gamejam-zespol": gameJamTeamPhoto,
+  "gamejam-kuchnia": gameJamKitchenPhoto,
+  "gamejam-pixel-art": gameJamPixelArtPhoto,
 };
 
 /**
@@ -141,10 +160,12 @@ export default function AchievementsBlock() {
                 {items.map((item, index) => {
                   const logos = LOGOS[item.id] ?? [];
                   const isActive = !pinned || index === active;
+                  const map = "map" in item ? item.map : null;
+                  const points = "points" in item ? item.points : null;
                   return (
                     <article
                       key={item.id}
-                      className={`achievements-slide bento${item.photos.length > 0 ? " bento--photos" : ""}`}
+                      className={`achievements-slide bento${map ? " bento--map" : points ? " bento--points" : item.photos.length > 0 ? " bento--photos" : ""}`}
                       data-active={isActive}
                       inert={!isActive}
                       role="group"
@@ -152,19 +173,27 @@ export default function AchievementsBlock() {
                       aria-label={`${index + 1} / ${items.length}: ${item.name}`}
                     >
                       <div className="bento-text">
-                        <div className="flex items-center gap-4">
-                          {logos.map((logo, logoIndex) => (
-                            <Fragment key={logo.src}>
-                              {logoIndex > 0 && <span aria-hidden className="h-8 w-px bg-gray-200"/>}
-                              <img src={logo.src} alt={logo.alt} className={`${logo.className} w-auto`}/>
-                            </Fragment>
-                          ))}
-                        </div>
-                        <h3 className="bento-title mt-6 text-2xl font-bold text-balance text-gray-900 md:text-[1.75rem] md:leading-tight">{item.title}</h3>
+                        {logos.length > 0 && (
+                          <div className="mb-6 flex items-center gap-4">
+                            {logos.map((logo, logoIndex) => (
+                              <Fragment key={logo.src}>
+                                {logoIndex > 0 && <span aria-hidden className="h-8 w-px bg-gray-200"/>}
+                                <img src={logo.src} alt={logo.alt} className={`${logo.className} w-auto`}/>
+                              </Fragment>
+                            ))}
+                          </div>
+                        )}
+                        {item.title && <h3 className="bento-title text-2xl font-bold text-balance text-gray-900 md:text-[1.75rem] md:leading-tight">{item.title}</h3>}
                         {item.body.map(paragraph => (
                           <p key={paragraph} className="mt-4 max-w-[65ch] font-light text-gray-700">{paragraph}</p>
                         ))}
-                        <div className="mt-6 flex flex-wrap gap-3">
+                        {points && (
+                          <div className={item.title ? "mt-6" : undefined}>
+                            <h3 className="text-xl font-bold text-balance text-gray-900">{points[0].title}</h3>
+                            <p className="mt-1 max-w-[65ch] font-light text-gray-700">{points[0].body}</p>
+                          </div>
+                        )}
+                        {item.links.length > 0 && <div className="mt-6 flex flex-wrap gap-3">
                           {item.links.map(link => (
                             <a
                               key={link.href}
@@ -177,10 +206,37 @@ export default function AchievementsBlock() {
                               <ArrowIcon className="h-4 w-4 -rotate-45" aria-hidden/>
                             </a>
                           ))}
-                        </div>
+                        </div>}
                       </div>
 
-                      {item.photos.map((photo, photoIndex) => (
+                      {map && (
+                        <div className="bento-map">
+                          <TalkGlobe
+                            coordinates={map.coordinates}
+                            label={map.label}
+                            photos={item.photos.map(photo => ({src: PHOTOS[photo.id], alt: photo.alt, caption: photo.caption}))}
+                          />
+                        </div>
+                      )}
+
+                      {points?.map((point, pointIndex) => (
+                        <Fragment key={point.title}>
+                          {/* The first point's text lives in the title cell (above), so only the others get their own */}
+                          {pointIndex > 0 && (
+                            <div className={`bento-point-text-${pointIndex + 1}`}>
+                              <h3 className="text-xl font-bold text-balance text-gray-900">{point.title}</h3>
+                              <p className="mt-1 max-w-[65ch] font-light text-gray-700">{point.body}</p>
+                            </div>
+                          )}
+                          <div className={`bento-point-photos bento-point-photos-${pointIndex + 1} grid grid-cols-3 gap-3`}>
+                            {point.gallery.map(photo => (
+                              <img key={photo.id} src={PHOTOS[photo.id]} alt={photo.alt} loading="lazy" className="h-full min-h-0 w-full rounded-md bg-gray-100 object-cover"/>
+                            ))}
+                          </div>
+                        </Fragment>
+                      ))}
+
+                      {!map && item.photos.map((photo, photoIndex) => (
                         <figure key={photo.id} className={`bento-photo-${photoIndex + 1} relative overflow-hidden rounded-md bg-gray-100`}>
                           <img src={PHOTOS[photo.id]} alt={photo.alt} loading="lazy" className="absolute inset-0 h-full w-full object-cover"/>
                           <figcaption className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/70 to-transparent px-4 pt-10 pb-3 font-mono text-xs font-medium text-white">
@@ -197,7 +253,7 @@ export default function AchievementsBlock() {
                         </div>
                       )}
 
-                      <dl className="bento-stats grid gap-x-6 gap-y-5">
+                      {item.stats.length > 0 && <dl className="bento-stats grid gap-x-6 gap-y-5">
                         {item.stats.map(stat => (
                           <div key={stat.label} className={`flex flex-col-reverse justify-end border-t border-gray-200 pt-3${"full" in stat && stat.full ? " col-span-full" : ""}`}>
                             <dt className="mt-0.5 text-sm font-light text-gray-600">{stat.label}</dt>
@@ -207,7 +263,7 @@ export default function AchievementsBlock() {
                             </dd>
                           </div>
                         ))}
-                      </dl>
+                      </dl>}
 
                       {item.partners.length > 0 && (
                         <div className="bento-list border-t border-gray-200 pt-3">

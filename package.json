@@ -1,7 +1,7 @@
 {
   "name": "barcz-me-website",
   "private": true,
-  "version": "2.5.0",
+  "version": "2.6.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,8 +14,10 @@
     "@eslint/eslintrc": "^3.3.7",
     "@eslint/js": "^9.39.5",
     "@tailwindcss/vite": "^4.3.5",
+    "@types/d3-geo": "^3.1.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@types/topojson-client": "^3.1.5",
     "@vitejs/plugin-react": "^6.3.0",
     "eslint": "^9.39.5",
     "eslint-plugin-react": "^7.37.5",
@@ -34,5 +36,10 @@
   "engines": {
     "node": "24.x",
     "npm": "11.x"
+  },
+  "dependencies": {
+    "d3-geo": "^3.1.2",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
   }
 }
