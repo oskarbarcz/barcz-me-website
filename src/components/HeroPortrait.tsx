@@ -1,5 +1,6 @@
 import cutoutAvif from "../assets/photos/oskar_cutout.avif";
 import cutoutPng from "../assets/photos/oskar_cutout.png";
+import useI18n from "../i18n/context.ts";
 
 const BLOB = "blob-grain absolute transform-gpu animate-[blobMorph_20s_ease-in-out_infinite] opacity-[0.4] blur-sm " +
   "will-change-[border-radius,transform]";
@@ -9,6 +10,8 @@ const BLOB = "blob-grain absolute transform-gpu animate-[blobMorph_20s_ease-in-o
  * The glow is the blog hero's own three-blob composition, re-centred behind the head.
  */
 export default function HeroPortrait() {
+  const {t} = useI18n();
+
   return (
     <div className="relative mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-md">
       <div aria-hidden className="pointer-events-none absolute -inset-x-16 -top-10 bottom-1/4">
@@ -21,7 +24,7 @@ export default function HeroPortrait() {
         <img
           className="relative block w-full [mask-image:linear-gradient(to_bottom,#000_86%,transparent)]"
           src={cutoutPng}
-          alt="Oskar Barcz podczas wystąpienia, z mikrofonem w dłoni"
+          alt={t.hero.portraitAlt}
           width={900}
           height={920}
         />

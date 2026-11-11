@@ -1,0 +1,22 @@
+/* A green glow that follows the pointer along the top line of every column */
+.tech-column::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 2px;
+  opacity: 0;
+  transition: opacity 200ms;
+  background: radial-gradient(220px circle at var(--glow-x, -999px) 1px, var(--color-brand), transparent 60%);
+}
+
+.tech-grid:hover .tech-column::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-column::before {
+    transition: none;
+  }
+}
