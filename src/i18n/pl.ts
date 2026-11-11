@@ -95,6 +95,34 @@ const pl = {
         gallery: [],
       },
       {
+        id: "symfonyday-montreal",
+        name: "SymfonyDay Montreal 2026",
+        title: "Zostałem zaproszony na konferencję SymfonyDay w Montrealu, gdzie wygłosiłem prelekcję o CQRS w Symfony",
+        body: [
+          "Organizatorzy SymfonyDay zaprosili mnie do Montrealu z prelekcją „CQRS in Symfony: yes, but calm down”. Było to moje pierwsze wystąpienie na innym kontynencie.",
+          "Opowiadałem o tym, kiedy rozdzielenie zapisu od odczytu realnie upraszcza aplikację w Symfony, a kiedy tylko przenosi problem w inne miejsce.",
+        ],
+        stats: [],
+        // A globe with the city marked takes the place of the figures; the photos hang off the marker
+        map: {label: "Montreal, Kanada", coordinates: [-73.57, 45.5] as [number, number]},
+        listLabel: "",
+        partners: [],
+        links: [],
+        photos: [
+          {
+            id: "symfonyday-scena",
+            alt: "Oskar Barcz z mikrofonem na scenie SymfonyDay Montreal, obok ekran z tytułem prelekcji o CQRS w Symfony",
+            caption: "SymfonyDay Montreal, czerwiec 2026",
+          },
+          {
+            id: "symfonyday-prelekcja",
+            alt: "Oskar Barcz przy mównicy podczas prelekcji, na ekranie mem o klasie serwisowej łamiącej SRP",
+            caption: "CQRS in Symfony: yes, but calm down",
+          },
+        ],
+        gallery: [],
+      },
+      {
         id: "generacja-innowacja",
         name: "Generacja Innowacja",
         title: "Zbudowałem część technologiczną Fundacji, od pierwszego zespołu technicznego, do największego tech-first NGO w Polsce",
@@ -127,6 +155,41 @@ const pl = {
           {id: "fundacja-prezentacja", alt: "Prezentacja fundacji dla uczniów, na ekranie plan spotkania"},
           {id: "fundacja-zespol", alt: "Zespół Fundacji Generacja Innowacja na schodach przed budynkiem, z podziękowaniami od Fundacji Młode Kresy"},
         ],
+      },
+      {
+        id: "mlode-talenty",
+        name: "Młode talenty",
+        // No slide title: the two points carry their own headings
+        title: "",
+        body: [],
+        stats: [],
+        // A 2 × 2: the first point's text with its photos below, the second's photos beside it with its text below;
+        // `id` picks the image in the component
+        points: [
+          {
+            title: "Uczę umiejętności potrzebnych w branży IT",
+            body: "Prowadzę spotkania dla uczniów i studentów w szkołach i uczelniach technicznych. Zrealizowałem wizję programu praktyk, gdzie wykorzystujemy zapał i zaangażowanie młodych talentów. Dajemy im rozwój techniczny, na który, z racji pochodzenia z miast powiatowych nie mogą realizować lokalnie. Zamiast parzenia kawy w urzędzie miasta, ci uczniowie rozwijają dziś projekty, z których korzystają setki tysięcy osób.",
+            gallery: [
+              {id: "talenty-szkola-aula", alt: "Oskar Barcz prowadzi spotkanie z uczniami w szkolnej sali, na ekranie strona myPolitics"},
+              {id: "talenty-szkola-pracownia", alt: "Oskar Barcz w pracowni komputerowej przed uczniami, na ekranie strona Fundacji Generacja Innowacja"},
+              {id: "talenty-praktyki", alt: "Uczniowie słuchają prezentacji o praktykach w Generacji Innowacji, na slajdzie liczba użytkowników"},
+            ],
+          },
+          {
+            title: "Wspieram wydarzenia dla młodych talentów",
+            body: "Biorę udział i wspieram wydarzenia rozwijające młodych twórców. Jednym z takich wydarzeń jest m.in. GameJam w Kędzierzynie-Koźlu. W jeden weekend zespoły programistów i grafików przechodzą od pomysłu do działającej gry, a ja pomagam im po drodze dobrać narzędzia, rozwiązać problemy techniczne i dowieźć projekt na czas. To najlepsza lekcja pracy zespołowej, jakiej nie da się wynieść z podręcznika.",
+            gallery: [
+              {id: "gamejam-zespol", alt: "Selfie Oskara Barcza z uczestnikami GameJamu przy laptopach, w rogu logo Generacji Innowacji"},
+              {id: "gamejam-kuchnia", alt: "Uczestnicy GameJamu wspólnie smażą naleśniki w kuchni"},
+              {id: "gamejam-pixel-art", alt: "Uczestniczka GameJamu rysuje pikselową gęś na ekranie dotykowym laptopa"},
+            ],
+          },
+        ],
+        listLabel: "",
+        partners: [],
+        links: [],
+        photos: [],
+        gallery: [],
       },
     ],
   },
