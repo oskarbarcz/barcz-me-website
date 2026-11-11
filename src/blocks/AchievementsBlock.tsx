@@ -10,6 +10,9 @@ import generacjaInnowacjaLogo from "../assets/logos/generacja-innowacja.svg";
 import myPoliticsLogo from "../assets/logos/mypolitics.svg";
 import premieraPhoto from "../assets/photos/achievements/premiera-raportu.jpg";
 import belwederPhoto from "../assets/photos/achievements/belweder.jpg";
+import warsztatyPhoto from "../assets/photos/achievements/fundacja-warsztaty.jpg";
+import zespolPhoto from "../assets/photos/achievements/fundacja-zespol.jpg";
+import prezentacjaPhoto from "../assets/photos/achievements/fundacja-prezentacja.jpg";
 import '../styles/Achievements.css';
 
 // Młodzi Wyborcy is a myPolitics product, so it carries the parent brand on its left
@@ -24,13 +27,16 @@ const LOGOS: Record<string, {src: string, alt: string, className: string}[]> = {
 const PHOTOS: Record<string, string> = {
   premiera: premieraPhoto,
   belweder: belwederPhoto,
+  "fundacja-warsztaty": warsztatyPhoto,
+  "fundacja-zespol": zespolPhoto,
+  "fundacja-prezentacja": prezentacjaPhoto,
 };
 
 /**
  * Where the section pins and scrolling down slides the achievements sideways.
  * Must match the media query in Achievements.css; elsewhere the bentos simply stack.
  */
-const PIN_MEDIA = "(min-width: 1280px) and (min-height: 1020px) and (prefers-reduced-motion: no-preference)";
+const PIN_MEDIA = "(min-width: 1280px) and (min-height: 1050px) and (prefers-reduced-motion: no-preference)";
 
 export default function AchievementsBlock() {
   const {t} = useI18n();
@@ -183,25 +189,32 @@ export default function AchievementsBlock() {
                         </figure>
                       ))}
 
+                      {item.gallery.length > 0 && (
+                        <div className="bento-gallery grid grid-cols-3 gap-3">
+                          {item.gallery.map(photo => (
+                            <img key={photo.id} src={PHOTOS[photo.id]} alt={photo.alt} loading="lazy" className="h-full min-h-0 w-full rounded-md bg-gray-100 object-cover"/>
+                          ))}
+                        </div>
+                      )}
+
                       <dl className="bento-stats grid gap-x-6 gap-y-5">
                         {item.stats.map(stat => (
-                          <div key={stat.label} className="flex flex-col-reverse justify-end border-t border-gray-200 pt-3">
+                          <div key={stat.label} className={`flex flex-col-reverse justify-end border-t border-gray-200 pt-3${"full" in stat && stat.full ? " col-span-full" : ""}`}>
                             <dt className="mt-0.5 text-sm font-light text-gray-600">{stat.label}</dt>
-                            <dd className="bento-stat-value text-2xl font-bold text-balance text-gray-900 tabular-nums">{stat.value}</dd>
+                            <dd className="bento-stat-value text-2xl font-bold text-balance text-gray-900 tabular-nums">
+                              {"prefix" in stat && <span className="mr-[0.3em] text-[0.6em] font-light text-gray-500">{stat.prefix}</span>}
+                              {stat.value}
+                            </dd>
                           </div>
                         ))}
                       </dl>
 
-                      <div className="bento-list border-t border-gray-200 pt-3">
-                        <p className="font-mono text-[13px] font-medium text-gray-900">{item.listLabel}</p>
-                        {item.partners.length > 0 ? (
+                      {item.partners.length > 0 && (
+                        <div className="bento-list border-t border-gray-200 pt-3">
+                          <p className="font-mono text-[13px] font-medium text-gray-900">{item.listLabel}</p>
                           <PartnerMarquee partners={item.partners}/>
-                        ) : (
-                          <ul className="bento-list-items mt-2 gap-6 sm:columns-2 font-mono text-[13px] leading-relaxed text-gray-500">
-                            {(item.list ?? []).map(entry => <li key={entry} className="break-inside-avoid">{entry}</li>)}
-                          </ul>
-                        )}
-                      </div>
+                        </div>
+                      )}
                     </article>
                   );
                 })}

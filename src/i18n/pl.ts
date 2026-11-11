@@ -36,8 +36,8 @@ const pl = {
   },
 
   achievements: {
-    heading: {before: "Wybrane ", highlight: "osiągnięcia", after: ""},
-    lead: "Poza pracą komercyjną kieruję technologią w Fundacji Generacja Innowacja. Nasze projekty docierają do milionów osób w Polsce.",
+    heading: {before: "Co robię poza ", highlight: "pracą zawodową", after: "?"},
+    lead: "Udzielam się sporo w społecznościach technicznych. Jedną z nich zbudowałem od pierwszego zespołu technicznego, do pozycji największego tech-first NGO w Polsce. Projekty, które realizujemy, docierają do milionów osób w Polsce.",
     carouselLabel: "Osiągnięcia",
     previous: "Poprzednie osiągnięcie",
     next: "Następne osiągnięcie",
@@ -56,7 +56,7 @@ const pl = {
         ],
         stats: [
           {value: "ponad 550 000 osób", label: "wypełniło nasz quiz"},
-          {value: "100 000 osób", label: "w próbce badawczej"},
+          {value: "100 000 osób", label: "w próbce badawczej, z pełnym odwzorowaniem proporcji demograficznych"},
           {value: "77 pytań", label: "w 5 kategoriach"},
         ],
         listLabel: "Partnerzy raportu",
@@ -92,6 +92,7 @@ const pl = {
             caption: "Prezentacja raportu w Belwederze, marzec 2026",
           },
         ],
+        gallery: [],
       },
       {
         id: "generacja-innowacja",
@@ -107,15 +108,25 @@ const pl = {
           {value: "ponad 750 000", label: "osób w Quizie Wyborczym 2023"},
           {value: "ponad 500 000", label: "osób w Barometrze Prezydenckim 2025"},
           {value: "ponad 200", label: "wolontariuszy działających w Fundacji"},
+          {
+            prefix: "W 2026 roku uzyskaliśmy ponad",
+            value: "220 000 zł",
+            label: "finansowania publicznego na nasze projekty, a nasze wnioski zostały ocenione jako jedne z najbardziej merytorycznych.",
+            full: true,
+          },
         ],
-        listLabel: "Projekty",
-        list: ["Quiz Wyborczy 2023", "Warszawski Radar Wyborczy 2024", "Quiz Eurowyborczy 2024", "Barometr Prezydencki 2025", "Raport Młodzi Wyborcy '25", "Platforma Echo Generacji"],
         partners: [],
         links: [
           {label: "O Fundacji", href: "https://gi.org.pl/"},
           {label: "O myPolitics", href: "https://mypolitics.pl/"},
         ],
         photos: [],
+        // A row of photos above the figures; `id` picks the image in the component
+        gallery: [
+          {id: "fundacja-warsztaty", alt: "Warsztaty fundacji w szkolnej klasie, uczniowie przy stołach słuchają prowadzącego"},
+          {id: "fundacja-prezentacja", alt: "Prezentacja fundacji dla uczniów, na ekranie plan spotkania"},
+          {id: "fundacja-zespol", alt: "Zespół Fundacji Generacja Innowacja na schodach przed budynkiem, z podziękowaniami od Fundacji Młode Kresy"},
+        ],
       },
     ],
   },

@@ -10,7 +10,13 @@
 }
 
 .bento:not(.bento--photos) {
-  grid-template-areas: "text" "stats" "list";
+  grid-template-areas: "text" "gallery" "stats" "list";
+}
+
+.bento-gallery { grid-area: gallery; }
+
+.bento-gallery img {
+  aspect-ratio: 3 / 4;
 }
 
 /* Cells may shrink below their content's width, so the partner strip can't stretch the grid */
@@ -59,12 +65,12 @@
   }
 
   .bento:not(.bento--photos) {
-    grid-template-areas: "text text" "stats list";
+    grid-template-areas: "text text" "gallery gallery" "stats stats" "list list";
   }
 }
 
 /* Keep in sync with PIN_MEDIA in AchievementsBlock.tsx */
-@media (min-width: 1280px) and (min-height: 1020px) and (prefers-reduced-motion: no-preference) {
+@media (min-width: 1280px) and (min-height: 1050px) and (prefers-reduced-motion: no-preference) {
   /* The stage sticks under the navigation; each achievement holds for 45vh of scrolling */
   .achievements-track {
     --stage-top: calc(61px + 5rem);
@@ -130,11 +136,20 @@
     grid-template-areas: "text photo1 stats" "text photo2 list";
   }
 
+  /* The photo row takes whatever height the figures leave */
   .bento:not(.bento--photos) {
     grid-template-columns: 5fr 7fr;
-    grid-template-rows: auto 1fr;
-    row-gap: 2.5rem;
-    grid-template-areas: "text stats" "text list";
+    grid-template-rows: minmax(0, 1fr) auto;
+    row-gap: 2rem;
+    grid-template-areas: "text gallery" "text stats";
+  }
+
+  .bento-gallery {
+    min-height: 0;
+  }
+
+  .bento-gallery img {
+    aspect-ratio: auto;
   }
 
   .bento-photo-1,
@@ -147,28 +162,20 @@
     grid-template-columns: 1fr;
   }
 
-  /* The narrow tile beside the photos runs the names inline, as a comma-separated list */
-  .bento--photos .bento-list-items {
-    columns: 1;
-  }
-
-  .bento--photos .bento-list-items li {
-    display: inline;
-  }
-
-  .bento--photos .bento-list-items li:not(:last-child)::after {
-    content: ", ";
-  }
 
   /* Without photos the figures get the room: two columns, larger */
   .bento:not(.bento--photos) .bento-stats {
     grid-template-columns: 1fr 1fr;
-    row-gap: 2rem;
+    row-gap: 1.5rem;
+  }
+
+  .bento:not(.bento--photos) .bento-stats > div {
+    padding-bottom: 1rem;
   }
 
   .bento:not(.bento--photos) .bento-stat-value {
-    font-size: var(--text-4xl);
-    line-height: var(--text-4xl--line-height);
+    font-size: var(--text-3xl);
+    line-height: var(--text-3xl--line-height);
   }
 
   .bento-text {
