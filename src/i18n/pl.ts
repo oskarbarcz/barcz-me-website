@@ -19,6 +19,7 @@ const pl = {
     closeMenu: "Zamknij menu",
     links: {
       top: "O mnie",
+      achievements: "Osiągnięcia",
       technology: "Technologia",
       conferences: "Wystąpienia",
       blog: "Blog ↗",
@@ -32,6 +33,64 @@ const pl = {
     blogButton: "Czytaj bloga",
     portraitAlt: "Oskar Barcz podczas wystąpienia, z mikrofonem w dłoni",
     latestTalkLabel: "ostatnio na scenie",
+  },
+
+  achievements: {
+    heading: {before: "Wybrane ", highlight: "osiągnięcia", after: ""},
+    lead: "Poza pracą komercyjną kieruję technologią w Fundacji Generacja Innowacja. Nasze projekty docierają do milionów osób w Polsce.",
+    carouselLabel: "Osiągnięcia",
+    previous: "Poprzednie osiągnięcie",
+    next: "Następne osiągnięcie",
+    goTo: "Przejdź do: ",
+    // `id` picks the logo in the component; everything else is text
+    items: [
+      {
+        id: "mlodzi-wyborcy",
+        name: "Młodzi Wyborcy '25",
+        logoAlt: "Młodzi Wyborcy '25",
+        title: "Największe w historii Polski badanie poglądów młodych wyborców",
+        role: "Head of Engineering",
+        body: [
+          "Kierowałem zespołem technologicznym badania. W miesiącu przed wyborami prezydenckimi 2025 zebraliśmy na platformie myPolitics ponad 300 000 kwestionariuszy, z których wyłoniono próbę 100 000 osób w wieku 18–29 lat z zachowaniem proporcji demograficznych.",
+          "Projekt wsparło 12 organizacji partnerskich, a całą warstwę technologiczną, od zbierania odpowiedzi po publikację danych, dostarczył mój zespół. Raport zaprezentowaliśmy m.in. w Belwederze.",
+        ],
+        stats: [
+          {value: "300 000+", label: "wypełnionych kwestionariuszy"},
+          {value: "100 000", label: "osób w próbie badawczej"},
+          {value: "77", label: "pytań w 5 kategoriach"},
+          {value: "200 000+", label: "kontaktów z raportem"},
+        ],
+        listLabel: "Partnerzy",
+        list: ["Ad Personam", "Fundacja IBRiS", "Fundacja Venator", "Stowarzyszenie Pravda", "ORB", "PRZEkanał", "politologia.org", "Stowarzyszenie Racja", "Młode Kresy", "Kadeci RP", "Young Think", "android.com.pl"],
+        links: [
+          {label: "Raport i dane", href: "https://data.mypolitics.pl/mlodzi-wyborcy"},
+          {label: "O projekcie", href: "https://gi.org.pl/projekty/mlodzi-wyborcy-25"},
+        ],
+      },
+      {
+        id: "generacja-innowacja",
+        name: "Generacja Innowacja",
+        logoAlt: "Fundacja Generacja Innowacja",
+        title: "Platforma edukacji obywatelskiej z ponad 4 milionami użytkowników",
+        role: "Wiceprezes zarządu i Head of Engineering",
+        body: [
+          "Współzarządzam Fundacją Generacja Innowacja i odpowiadam za technologię jej projektów. Najważniejszy z nich to myPolitics: platforma testów poglądów politycznych, z której przed każdymi wyborami korzystają setki tysięcy osób.",
+          "Zespoły fundacji tworzą wolontariusze i stażyści. W ramach jej programów rozwinęło się ponad 170 osób.",
+        ],
+        stats: [
+          {value: "4 mln+", label: "użytkowników myPolitics"},
+          {value: "750 000+", label: "osób w Quizie Wyborczym 2023"},
+          {value: "500 000+", label: "osób w Barometrze Prezydenckim 2025"},
+          {value: "170+", label: "osób rozwiniętych w fundacji"},
+        ],
+        listLabel: "Projekty",
+        list: ["myPolitics", "Quiz Wyborczy 2023", "Warszawski Radar Wyborczy 2024", "EuroWyborczy 2024", "Barometr Prezydencki 2025", "Młodzi Wyborcy '25", "Echo Generacji"],
+        links: [
+          {label: "gi.org.pl", href: "https://gi.org.pl/"},
+          {label: "mypolitics.pl", href: "https://mypolitics.pl/"},
+        ],
+      },
+    ],
   },
 
   technology: {
