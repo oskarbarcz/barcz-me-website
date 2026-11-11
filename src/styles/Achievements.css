@@ -1,17 +1,230 @@
-/* The frame scrolls, but the dots and arrows beside it do the explaining, so the scrollbar stays hidden */
-.achievements-frame {
-  scrollbar-width: none;
-  /* Past the first or last slide the wheel carries on scrolling the page */
-  overscroll-behavior-y: auto;
+/*
+ * Each achievement is a bento in the page's own language: open columns, hairlines over figures and lists.
+ * Phones: one column. From md: two columns. While pinned (see the media query below): three columns.
+ */
+.bento {
+  display: grid;
+  gap: 2rem 2.5rem;
+  grid-template-columns: 1fr;
+  grid-template-areas: "text" "photo1" "photo2" "stats" "list";
 }
 
-.achievements-frame::-webkit-scrollbar {
-  display: none;
+.bento:not(.bento--photos) {
+  grid-template-areas: "text" "stats" "list";
 }
 
-.achievements-frame:focus-visible {
-  outline: 2px solid var(--color-brand-500);
-  outline-offset: 4px;
+/* Cells may shrink below their content's width, so the partner strip can't stretch the grid */
+.bento > * {
+  min-width: 0;
+}
+
+/* Figures like "ponad 550 000 osób" need a full row unless the cell is wide */
+.bento-stats {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .bento-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.bento-text { grid-area: text; }
+.bento-photo-1 { grid-area: photo1; }
+.bento-photo-2 { grid-area: photo2; }
+.bento-stats { grid-area: stats; }
+.bento-list { grid-area: list; }
+
+.bento-photo-1,
+.bento-photo-2 {
+  aspect-ratio: 4 / 3;
+}
+
+.achievements-slides {
+  display: grid;
+  gap: 3rem;
+}
+
+/* Stacked achievements are divided the way the page divides its sections */
+.achievements-slide + .achievements-slide {
+  border-top: 1px solid var(--color-gray-200);
+  padding-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .bento {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "text text" "photo1 photo2" "stats list";
+    gap: 1.5rem 2.5rem;
+  }
+
+  .bento:not(.bento--photos) {
+    grid-template-areas: "text text" "stats list";
+  }
+}
+
+/* Keep in sync with PIN_MEDIA in AchievementsBlock.tsx */
+@media (min-width: 1280px) and (min-height: 1020px) and (prefers-reduced-motion: no-preference) {
+  /* The stage sticks under the navigation; each achievement holds for 45vh of scrolling */
+  .achievements-track {
+    --stage-top: calc(61px + 5rem);
+    /* 140px between the moving bentos and the bottom of the screen, with the controls centred in it */
+    --stage-height: calc(100vh - var(--stage-top) - 54px);
+    height: calc(var(--stage-height) + var(--count) * 45vh);
+  }
+
+  .achievements-stage {
+    position: sticky;
+    top: var(--stage-top);
+    height: var(--stage-height);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .achievements-viewport {
+    margin-top: 100px;
+  }
+
+  .achievements-controls {
+    height: 2rem;
+    margin-top: 54px;
+  }
+
+  .bento-title {
+    font-size: 1.5rem;
+  }
+
+  /* The row of bentos is wider than the page; the next one peeks in from the right */
+  .achievements-viewport {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .achievements-slides {
+    display: flex;
+    gap: 5rem;
+    height: 100%;
+    will-change: transform;
+    transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .achievements-slide {
+    flex: 0 0 calc(100% - 8rem);
+    transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .achievements-slide[data-active="false"] {
+    opacity: 0.35;
+  }
+
+  .achievements-slide + .achievements-slide {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .bento {
+    gap: 1rem 2.5rem;
+    grid-template-columns: 5fr 4fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "text photo1 stats" "text photo2 list";
+  }
+
+  .bento:not(.bento--photos) {
+    grid-template-columns: 5fr 7fr;
+    grid-template-rows: auto 1fr;
+    row-gap: 2.5rem;
+    grid-template-areas: "text stats" "text list";
+  }
+
+  .bento-photo-1,
+  .bento-photo-2 {
+    aspect-ratio: auto;
+  }
+
+  /* A 3fr column is too narrow for a 2×2 of six-digit figures */
+  .bento--photos .bento-stats {
+    grid-template-columns: 1fr;
+  }
+
+  /* The narrow tile beside the photos runs the names inline, as a comma-separated list */
+  .bento--photos .bento-list-items {
+    columns: 1;
+  }
+
+  .bento--photos .bento-list-items li {
+    display: inline;
+  }
+
+  .bento--photos .bento-list-items li:not(:last-child)::after {
+    content: ", ";
+  }
+
+  /* Without photos the figures get the room: two columns, larger */
+  .bento:not(.bento--photos) .bento-stats {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+  }
+
+  .bento:not(.bento--photos) .bento-stat-value {
+    font-size: var(--text-4xl);
+    line-height: var(--text-4xl--line-height);
+  }
+
+  .bento-text {
+    overflow: auto;
+  }
+}
+
+/* Partner logos: two identical sets side by side, shifted left by one set per loop */
+.partner-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent);
+}
+
+.partner-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: partner-marquee 40s linear infinite;
+}
+
+.partner-marquee-set {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.partner-marquee:hover .partner-marquee-track,
+.partner-marquee:focus-within .partner-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes partner-marquee {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .partner-marquee-track {
+    width: auto;
+    animation: none;
+  }
+
+  .partner-marquee-set {
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    padding-right: 0;
+  }
+
+  .partner-marquee-set[aria-hidden] {
+    display: none;
+  }
 }
 
 .achievements-control {
@@ -40,10 +253,4 @@
 .achievements-control:focus-visible {
   outline: 2px solid var(--color-brand-500);
   outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .achievements-frame * {
-    transition: none !important;
-  }
 }
